@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>VisionPower 2.0 User Manual</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">VisionPower 2.0 User Manual</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#visionpower-2.0-用户手册"
+id="toc-visionpower-2.0-用户手册">VisionPower 2.0 用户手册</a>
+<ul>
+<li><a href="#第1章-前言" id="toc-第1章-前言">第1章 前言</a>
+<ul>
+<li><a href="#文档目的" id="toc-文档目的">1.1 文档目的</a></li>
+<li><a href="#阅读对象" id="toc-阅读对象">1.2 阅读对象</a></li>
+<li><a href="#使用建议" id="toc-使用建议">1.3 使用建议</a></li>
+</ul></li>
+<li><a href="#第2章-软件界面总览" id="toc-第2章-软件界面总览">第2章
+软件界面总览</a>
+<ul>
+<li><a href="#顶部菜单与工具栏" id="toc-顶部菜单与工具栏">2.1
+顶部菜单与工具栏</a></li>
+<li><a href="#作业页签" id="toc-作业页签">2.2 作业页签</a></li>
+</ul></li>
+<li><a href="#第3章-操作准备" id="toc-第3章-操作准备">第3章 操作准备</a>
+<ul>
+<li><a href="#选择运行模式" id="toc-选择运行模式">3.1
+选择运行模式</a></li>
+<li><a href="#配置相机" id="toc-配置相机">3.2 配置相机</a></li>
+<li><a href="#配置全局变量" id="toc-配置全局变量">3.3
+配置全局变量</a></li>
+<li><a href="#配置触发" id="toc-配置触发">3.4 配置触发</a></li>
+<li><a href="#配置网络通信" id="toc-配置网络通信">3.5
+配置网络通信</a></li>
+</ul></li>
+<li><a href="#第4章-快速上手搭建第一个作业"
+id="toc-第4章-快速上手搭建第一个作业">第4章 快速上手：搭建第一个作业</a>
+<ul>
+<li><a href="#新建项目与作业" id="toc-新建项目与作业">4.1
+新建项目与作业</a></li>
+<li><a href="#添加工具" id="toc-添加工具">4.2 添加工具</a></li>
+<li><a href="#连接工具" id="toc-连接工具">4.3 连接工具</a></li>
+<li><a href="#配置工具参数" id="toc-配置工具参数">4.4
+配置工具参数</a></li>
+<li><a href="#运行作业" id="toc-运行作业">4.5 运行作业</a></li>
+<li><a href="#查看结果" id="toc-查看结果">4.6 查看结果</a></li>
+<li><a href="#保存项目" id="toc-保存项目">4.7 保存项目</a></li>
+</ul></li>
+<li><a href="#第5章-流程编辑区使用技巧"
+id="toc-第5章-流程编辑区使用技巧">第5章 流程编辑区使用技巧</a></li>
+<li><a href="#第6章-图像显示与缩略图"
+id="toc-第6章-图像显示与缩略图">第6章 图像显示与缩略图</a>
+<ul>
+<li><a href="#主图像显示区" id="toc-主图像显示区">6.1
+主图像显示区</a></li>
+<li><a href="#作业显示设置" id="toc-作业显示设置">6.2
+作业显示设置</a></li>
+<li><a href="#缩略图区" id="toc-缩略图区">6.3 缩略图区</a></li>
+</ul></li>
+<li><a href="#第7章-工具说明" id="toc-第7章-工具说明">第7章 工具说明</a>
+<ul>
+<li><a href="#采集类" id="toc-采集类">7.1 采集类</a></li>
+<li><a href="#图像处理类" id="toc-图像处理类">7.2 图像处理类</a></li>
+<li><a href="#定位与检测类" id="toc-定位与检测类">7.3
+定位与检测类</a></li>
+<li><a href="#逻辑控制类" id="toc-逻辑控制类">7.4 逻辑控制类</a></li>
+<li><a href="#数据与通信类" id="toc-数据与通信类">7.5
+数据与通信类</a></li>
+<li><a href="#脚本类" id="toc-脚本类">7.6 脚本类</a></li>
+</ul></li>
+<li><a href="#第8章-页面控件说明" id="toc-第8章-页面控件说明">第8章
+页面控件说明</a>
+<ul>
+<li><a href="#主界面" id="toc-主界面">8.1 主界面</a></li>
+<li><a href="#作业页签工具栏" id="toc-作业页签工具栏">8.2
+作业页签工具栏</a></li>
+<li><a href="#作业显示设置-1" id="toc-作业显示设置-1">8.3
+作业显示设置</a></li>
+<li><a href="#主图像显示与缩略图" id="toc-主图像显示与缩略图">8.4
+主图像显示与缩略图</a></li>
+<li><a href="#全局相机" id="toc-全局相机">8.5 全局相机</a></li>
+<li><a href="#全局变量" id="toc-全局变量">8.6 全局变量</a></li>
+<li><a href="#全局触发" id="toc-全局触发">8.7 全局触发</a></li>
+<li><a href="#全局通讯" id="toc-全局通讯">8.8 全局通讯</a></li>
+<li><a href="#运行模式" id="toc-运行模式">8.9 运行模式</a></li>
+<li><a href="#日志" id="toc-日志">8.10 日志</a></li>
+</ul></li>
+<li><a href="#第9章-运行与发布" id="toc-第9章-运行与发布">第9章
+运行与发布</a>
+<ul>
+<li><a href="#调试期使用建议" id="toc-调试期使用建议">8.1
+调试期使用建议</a></li>
+<li><a href="#生产期使用建议" id="toc-生产期使用建议">8.2
+生产期使用建议</a></li>
+<li><a href="#启动顺序建议" id="toc-启动顺序建议">8.3
+启动顺序建议</a></li>
+</ul></li>
+<li><a href="#第10章-日志与提示" id="toc-第10章-日志与提示">第10章
+日志与提示</a></li>
+<li><a href="#第11章-常见问题" id="toc-第11章-常见问题">第11章
+常见问题</a>
+<ul>
+<li><a href="#缩略图问题" id="toc-缩略图问题">10.1 缩略图问题</a></li>
+<li><a href="#图像不显示" id="toc-图像不显示">10.2 图像不显示</a></li>
+<li><a href="#检测结果为空" id="toc-检测结果为空">10.3
+检测结果为空</a></li>
+<li><a href="#通信无数据" id="toc-通信无数据">10.4 通信无数据</a></li>
+<li><a href="#工具拖拽无效" id="toc-工具拖拽无效">10.5
+工具拖拽无效</a></li>
+</ul></li>
+<li><a href="#第12章-维护建议" id="toc-第12章-维护建议">第12章
+维护建议</a></li>
+<li><a href="#附录a-工具速查表" id="toc-附录a-工具速查表">附录A
+工具速查表</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="visionpower-2.0-用户手册">VisionPower 2.0 用户手册</h1>
+<p>版本：V2.0 适用对象：现场操作员、调试工程师、产线维护人员</p>
+<h2 id="第1章-前言">第1章 前言</h2>
+<h3 id="文档目的">1.1 文档目的</h3>
+<p>本手册帮助现场操作员快速掌握 VisionPower 2.0
+的日常使用，包括方案搭建、调试运行、参数调整、结果查看与常见问题处理。</p>
+<h3 id="阅读对象">1.2 阅读对象</h3>
+<ul>
+<li><p>现场操作员</p></li>
+<li><p>产线调试人员</p></li>
+<li><p>设备维护人员</p></li>
+</ul>
+<h3 id="使用建议">1.3 使用建议</h3>
+<ul>
+<li><p>第一次使用：建议依次阅读 第2章 ~ 第6章</p></li>
+<li><p>日常工具使用：可直接查阅 第7章 工具说明</p></li>
+<li><p>异常排查：参见 第10章 常见问题</p></li>
+</ul>
+<h2 id="第2章-软件界面总览">第2章 软件界面总览</h2>
+<p>打开软件后，主界面分为以下几个区域。</p>
+<p>[主界面总览 ] <img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image1.png"
+style="width:5.76806in;height:3.09722in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>区域</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顶部菜单与工具栏</td>
+<td>新建/打开/保存项目、运行控制、模式切换</td>
+</tr>
+<tr>
+<td>左侧工具箱</td>
+<td>所有可拖拽到流程区的工具</td>
+</tr>
+<tr>
+<td>中间作业页签</td>
+<td>一个项目可包含多个作业，可切换</td>
+</tr>
+<tr>
+<td>流程编辑区</td>
+<td>拖拽并连接工具，构成视觉流程</td>
+</tr>
+<tr>
+<td>主图像显示区</td>
+<td>显示当前工具或当前作业的图像结果</td>
+</tr>
+<tr>
+<td>缩略图区</td>
+<td>浏览图像源中的多张图像并切换</td>
+</tr>
+<tr>
+<td>结果数据区</td>
+<td>显示当前工具运行后的输出数据</td>
+</tr>
+<tr>
+<td>日志区</td>
+<td>显示运行日志与错误提示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="顶部菜单与工具栏">2.1 顶部菜单与工具栏</h3>
+<p>[顶部菜单]</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image2.png"
+style="width:5.44724in;height:0.82281in" /></p>
+<p>常用按钮：</p>
+<ul>
+<li><p>新建项目 / 打开项目 / 保存项目</p></li>
+<li><p>新建作业 / 删除作业</p></li>
+<li><p>切换运行模式（在线 / 离线）</p></li>
+<li><p>全局变量 / 全局相机 / 全局触发 / 全局网络</p></li>
+</ul>
+<h3 id="作业页签">2.2 作业页签</h3>
+<p>[作业页签]</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image3.png"
+style="width:5.76806in;height:0.59375in" /></p>
+<ul>
+<li><p>每个作业是一条独立的视觉流程</p></li>
+<li><p>页签前的“设置图标”用于配置该作业的显示项</p></li>
+<li><p>点击页签可切换当前作业</p></li>
+</ul>
+<h2 id="第3章-操作准备">第3章 操作准备</h2>
+<h3 id="选择运行模式">3.1 选择运行模式</h3>
+<ul>
+<li><p>离线模式：使用本地图像或文件夹中的图像进行调试，无需相机</p></li>
+<li><p>在线模式：连接相机进行实时采集与运行，也可使用tcp触发本地图像的作业</p></li>
+</ul>
+<p>调试参数建议先在离线模式完成，再切换到在线模式联调硬件。</p>
+<h3 id="配置相机">3.2 配置相机</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image4.png"
+style="width:5.76806in;height:3.46111in" /></p>
+<p>在“全局相机”窗口中：</p>
+<ol type="1">
+<li><p>选择品牌与设备</p></li>
+<li><p>设置曝光、增益、触发方式</p></li>
+<li><p>测试取流</p></li>
+</ol>
+<h3 id="配置全局变量">3.3 配置全局变量</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image5.png"
+style="width:5.76806in;height:3.32361in" /></p>
+<p>在“全局变量”窗口中可统一管理跨作业共享的参数（如批次号、阈值、目标尺寸等）。</p>
+<p>[全局变量]</p>
+<h3 id="配置触发">3.4 配置触发</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image6.png"
+style="width:5.76806in;height:3.60625in" /></p>
+<p>在“全局触发”窗口中设置自动运行触发方式：</p>
+<ul>
+<li><p>定时触发</p></li>
+<li><p>外部信号触发</p></li>
+<li><p>条件触发</p></li>
+</ul>
+<h3 id="配置网络通信">3.5 配置网络通信</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image7.png"
+style="width:5.76806in;height:3.69028in" /></p>
+<p>在“全局通讯”中维护与上位机、机器人、PLC 的 TCP
+连接，分别可设置服务端与客户端，主要用于配置与机器人的通讯用于字符串的发送，配置后启动即可，点击发送可发送数据给连接上的客户端/服务端，也可在通讯记录中查看通讯的数据信息。</p>
+<h2 id="第4章-快速上手搭建第一个作业">第4章
+快速上手：搭建第一个作业</h2>
+<h3 id="新建项目与作业">4.1 新建项目与作业</h3>
+<ol type="1">
+<li><p>点击“新建项目”</p></li>
+<li><p>点击“新建作业”并命名</p></li>
+<li><p>系统会自动打开作业页签</p></li>
+</ol>
+<h3 id="添加工具">4.2 添加工具</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image8.png"
+style="width:2.925in;height:9.69306in" /></p>
+<ul>
+<li><p>从左侧工具箱中找到需要的工具</p></li>
+<li><p>用鼠标拖拽到流程编辑区</p></li>
+<li><p>默认每个作业必须以“图像源”工具开头</p></li>
+</ul>
+<h3 id="连接工具">4.3 连接工具</h3>
+<ul>
+<li><p>鼠标从上一工具底部连接点拉到下一工具顶部连接点，注意出现“十”字标志的时候才是连接点。</p></li>
+<li><p>连线箭头表示数据流向</p></li>
+</ul>
+<h3 id="配置工具参数">4.4 配置工具参数</h3>
+<ul>
+<li><p>双击工具节点，打开该工具的配置窗口</p></li>
+<li><p>修改参数后点击“确定”保存</p></li>
+<li><p>配置完成后在工具内点执行工具，或退出工具页面，在主作业页面单击工具可立即执行到该工具并查看效果</p></li>
+</ul>
+<h3 id="运行作业">4.5 运行作业</h3>
+<ul>
+<li><p>单击工具：执行到该工具并显示结果</p></li>
+<li><p>工具栏“运行”按钮<img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image9.png"
+style="width:0.24997in;height:0.23955in" />：执行一次完整作业</p></li>
+<li><p>工具栏“连续运行”按钮<img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image10.png"
+style="width:0.28122in;height:0.21872in" />：进入循环执行，再次点击停止</p></li>
+<li><p>点击空白处会显示配置的图像与图形信息，单击作业名称前方的“🔧”图标可进入配置页面：</p></li>
+</ul>
+<blockquote>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image11.png"
+style="width:5.76806in;height:4.35139in" /></p>
+<p>显示设置必须有默认的输出图像作为显示的基准图，未配置显示设置的时候，会默认显示当前作业选中的工具对应的输出图像信息，如果既没有配置图像显示也没有选中作业，那么会默认显示图像源中的图像信息</p>
+</blockquote>
+<h3 id="查看结果">4.6 查看结果</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image12.png"
+style="width:5.76806in;height:5.56042in" /></p>
+<ul>
+<li><p>主图像显示区：显示图像、ROI、检测框等图形信息</p></li>
+<li><p>结果数据区：显示工具输出的数值结果</p></li>
+<li><p>日志区：显示执行过程信息</p></li>
+</ul>
+<h3 id="保存项目">4.7 保存项目</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image13.png"
+style="width:2.90589in;height:1.41649in" /></p>
+<p>完成调试后，点击“保存项目”。下次打开可直接恢复所有配置，如果需要默认为在线，需要在保证设置为在线模式下点击保存按钮，这样下次启动程序就会默认为在线模式，保证流程作业被自动触发。</p>
+<h2 id="第5章-流程编辑区使用技巧">第5章 流程编辑区使用技巧</h2>
+<ul>
+<li><p>单击工具：执行到该工具</p></li>
+<li><p>双击工具：打开配置窗口（自动执行到上一个工具便于调参）</p></li>
+<li><p>拖拽工具：移动位置</p></li>
+<li><p>选中连线后按 Delete：删除连线</p></li>
+<li><p>选中工具后按 Delete：删除工具</p></li>
+<li><p>右键工具：禁用 / 启用 / 删除</p></li>
+<li><p>框选多个工具：批量移动或删除</p></li>
+<li><p>空白处单击：取消当前选中</p></li>
+<li><p>鼠标滚轮：流程区域滚动</p></li>
+</ul>
+<h2 id="第6章-图像显示与缩略图">第6章 图像显示与缩略图</h2>
+<h3 id="主图像显示区">6.1 主图像显示区</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image14.png"
+style="width:5.76806in;height:3.40764in" /></p>
+<p>显示内容由当前选中工具或“作业显示设置”决定。</p>
+<ul>
+<li><p>鼠标滚轮：缩放</p></li>
+<li><p>鼠标拖动：平移</p></li>
+<li><p>右键菜单：保存原始图像</p></li>
+</ul>
+<h3 id="作业显示设置">6.2 作业显示设置</h3>
+<p>点击作业页签前的“🔧”设置图标打开“作业显示设置”窗口，可订阅多个工具的输出来组合显示。</p>
+<p>操作步骤：</p>
+<ol type="1">
+<li><p>点击“添加”选择要显示的输出（图像 / ROI / 文本 /
+检测结果）</p></li>
+<li><p>在“订阅关系”中选择对应工具的输出字段</p></li>
+<li><p>点击“执行”“连续执行”或“确定”</p></li>
+<li><p>设置会随项目一起保存</p></li>
+<li><p>默认必须有图像作为图形叠加显示的基础</p></li>
+</ol>
+<h3 id="缩略图区">6.3 缩略图区</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image15.png"
+style="width:5.76806in;height:0.71667in" /></p>
+<p>仅在以下情况下显示缩略图区：</p>
+<ul>
+<li><p>当前作业已添加“图像源”工具</p></li>
+<li><p>点击了该“图像源”工具</p></li>
+</ul>
+<p>非图像源工具被点击时，缩略图区保留，但添加/删除/自动切换等操作按钮隐藏，避免误操作。</p>
+<p>切换缩略图中任意图像会自动执行作业并刷新显示。</p>
+<h2 id="第7章-工具说明">第7章 工具说明</h2>
+<p>下面按功能分组介绍当前版本启用的工具。每个工具包含：用途、参数表、输出、使用要点。</p>
+<h3 id="采集类">7.1 采集类</h3>
+<h4 id="图像源">7.1.1 图像源</h4>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image16.png"
+style="width:5.76806in;height:3.45139in" /></p>
+<p><strong>用途</strong>：所有作业的入口，提供本张待处理图像。</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 39%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像源</td>
+<td>选择图像来源</td>
+<td>来自相机、来自本地图像、来自文件夹</td>
+</tr>
+<tr>
+<td>转灰度图</td>
+<td>加载或采集后自动转灰度</td>
+<td>勾选 / 不勾选</td>
+</tr>
+<tr>
+<td>文件路径</td>
+<td>单张图像路径</td>
+<td>文件浏览</td>
+</tr>
+<tr>
+<td>文件夹路径</td>
+<td>文件夹模式下的目录</td>
+<td>文件夹浏览</td>
+</tr>
+<tr>
+<td>当前图像</td>
+<td>当前选中的图像文件名</td>
+<td>自动显示</td>
+</tr>
+<tr>
+<td>自动切换</td>
+<td>是否在循环运行中自动切换下一张</td>
+<td>开 / 关</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：原始图像（彩色或灰度）。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>文件夹模式下，缩略图区可手动切图或开启自动切换</p></li>
+<li><p>切换运行模式或新建作业后建议重新点击本工具刷新缩略图</p></li>
+<li><p>相机模式下需先在「全局相机」中配置好设备，保存后可在此选择绑定的全局相机</p></li>
+</ul>
+<h4 id="图像保存">7.1.2 图像保存</h4>
+<h4
+id="用途将当前图像按规则保存到磁盘便于追溯-ok-ng-原图"><strong>用途</strong>：将当前图像按规则保存到磁盘，便于追溯
+OK / NG 原图。</h4>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image17.png"
+style="width:4.50985in;height:5.44724in" /></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 43%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>待保存的图像来源</td>
+<td>选择上游工具输出</td>
+</tr>
+<tr>
+<td>保存格式</td>
+<td>文件格式</td>
+<td>PNG / JPG / BMP</td>
+</tr>
+<tr>
+<td>保存路径</td>
+<td>保存目录</td>
+<td>文件夹浏览</td>
+</tr>
+<tr>
+<td>保存条件</td>
+<td>触发保存的条件</td>
+<td>每次保存、按条件保存</td>
+</tr>
+<tr>
+<td>保存间隔</td>
+<td>周期性保存间隔</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>最小磁盘空间</td>
+<td>剩余空间低于该值时停止保存</td>
+<td>MB / GB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：保存的文件路径。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>保存路径必须存在且可写入</p></li>
+<li><p>与「条件检测」工具组合可实现仅 NG 时保存</p></li>
+<li><p>注意磁盘空间阈值，避免占满磁盘</p></li>
+</ul>
+<h3 id="图像处理类">7.2 图像处理类</h3>
+<h4 id="图像增强">7.2.1 图像增强</h4>
+<p><strong>用途</strong>：调节亮度、对比度、Gamma 等，改善图像质量。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image18.png"
+style="width:4.36404in;height:5.11394in" /></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>待增强图像</td>
+<td>选择上游输出</td>
+</tr>
+<tr>
+<td>增强类型</td>
+<td>算法选择</td>
+<td>直方图均衡、伽马校正、增益/补偿</td>
+</tr>
+<tr>
+<td>伽马校正值</td>
+<td>γ 参数</td>
+<td>0.1 ~ 10.0</td>
+</tr>
+<tr>
+<td>亮度增益</td>
+<td>乘法系数</td>
+<td>0.1 ~ 10.0</td>
+</tr>
+<tr>
+<td>亮度补偿</td>
+<td>加法偏移</td>
+<td>-255 ~ +255</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：增强后的图像。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>γ &lt; 1 提亮暗区，γ &gt; 1 压暗亮区</p></li>
+<li><p>增益和补偿可叠加使用</p></li>
+<li><p>修改参数后单击工具可立即看到效果</p></li>
+</ul>
+<h4 id="图像二值化">7.2.2 图像二值化</h4>
+<p><strong>用途</strong>：将灰度图按阈值转为黑白二值图。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image19.png"
+style="width:4.19739in;height:5.39516in" /></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>待二值化的图像</td>
+<td>通常为灰度图</td>
+</tr>
+<tr>
+<td>二值化类型</td>
+<td>阈值方法</td>
+<td>自动阈值、硬阈值、自适应阈值、反二值化</td>
+</tr>
+<tr>
+<td>低阈值</td>
+<td>阈值下界</td>
+<td>0 ~ 255</td>
+</tr>
+<tr>
+<td>高阈值</td>
+<td>阈值上界</td>
+<td>0 ~ 255</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：二值图像（0 或 255）。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>高阈值必须大于低阈值</p></li>
+<li><p>自适应阈值自动计算阈值，手动阈值无效</p></li>
+<li><p>二值化效果直接决定后续 Blob 等检测的稳定性</p></li>
+</ul>
+<h4 id="几何变换">7.2.3 几何变换</h4>
+<p><strong>用途</strong>：对图像进行旋转、缩放、平移、仿射变换。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image20.png"
+style="width:4.36404in;height:5.11394in" /></p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 30%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>待变换图像</td>
+<td>选择上游输出</td>
+</tr>
+<tr>
+<td>旋转角度</td>
+<td>顺时针角度</td>
+<td>-360 ~ +360</td>
+</tr>
+<tr>
+<td>镜像方向</td>
+<td>对图像镜像变换</td>
+<td>水平、垂直、水平垂直镜像</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：变换后的图像。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>旋转/缩放会导致边缘出现黑边</p></li>
+</ul>
+<h3 id="定位与检测类">7.3 定位与检测类</h3>
+<h4 id="高精度模板匹配">7.3.1 高精度模板匹配</h4>
+<p><strong>用途</strong>：在图像中找出与模板相似的位置，输出坐标和角度，支持旋转、缩放搜索。</p>
+<p>工具主页：</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image21.png"
+style="width:4.30155in;height:5.12436in" /></p>
+<p>模板设计页面：</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image22.png"
+style="width:5.76806in;height:3.25417in" /></p>
+<p>效果图<img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image23.png"
+style="width:5.76806in;height:4.74236in" />：</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 28%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>搜索源图像</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>ROI</td>
+<td>搜索区域</td>
+<td>全图或自定义，也可继承其他工具ROI</td>
+</tr>
+<tr>
+<td>位置修正</td>
+<td>是否启用位置修正</td>
+<td>开 / 关，配合上游位置修正工具使用</td>
+</tr>
+<tr>
+<td>最小匹配数</td>
+<td>输出结果上限</td>
+<td>1 ~ 999</td>
+</tr>
+<tr>
+<td>最小匹配分数</td>
+<td>相似度阈值</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+<tr>
+<td>最大重叠率</td>
+<td>重叠去重比例</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+<tr>
+<td>搜索旋转范围</td>
+<td>起始角 / 结束角 / 步数</td>
+<td>角度</td>
+</tr>
+<tr>
+<td>搜索缩放范围</td>
+<td>最小 / 最大尺度</td>
+<td>0.1 ~ 10.0</td>
+</tr>
+<tr>
+<td>低对比度 / 高对比度</td>
+<td>对比度限制</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>贪心系数</td>
+<td>搜索激进度</td>
+<td>0 ~ 1，越小越精细</td>
+</tr>
+<tr>
+<td>分隔符 / 结束符</td>
+<td>输出格式分隔符</td>
+<td>自定义</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：匹配点列表（X、Y、角度、分数）、匹配数量、标注图像。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>配套「图像掩膜」可屏蔽模板中无效区域</p></li>
+<li><p>「模板设计」中调好模板范围与中心点</p></li>
+<li><p>分数阈值过低会误检，过高会漏检</p></li>
+<li><p>「创建匹配中心」可创建非默认匹配输出的中心位置</p></li>
+</ul>
+<h4 id="blob-分析">7.3.2 Blob 分析</h4>
+<p><strong>用途</strong>：检测连通域并按面积、外形等条件过滤。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image24.png"
+style="width:4.35362in;height:5.20768in" /></p>
+<p>效果图：</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image25.png"
+style="width:5.76806in;height:4.60764in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 16%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>一般为二值图</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>二值化类型</td>
+<td>内部二值方法</td>
+<td>普通 / 自适应 / 大津</td>
+</tr>
+<tr>
+<td>最小阈值</td>
+<td>二值阈值</td>
+<td>0 ~ 255</td>
+</tr>
+<tr>
+<td>最小面积 / 最大面积</td>
+<td>面积范围</td>
+<td>像素数</td>
+</tr>
+<tr>
+<td>最小宽度 / 最大宽度</td>
+<td>矩形框宽</td>
+<td>像素</td>
+</tr>
+<tr>
+<td>最小高度 / 最大高度</td>
+<td>矩形框高</td>
+<td>像素</td>
+</tr>
+<tr>
+<td>最小个数 / 最大个数</td>
+<td>输出数量限制</td>
+<td>个</td>
+</tr>
+<tr>
+<td>圆形度过滤</td>
+<td>圆度筛选</td>
+<td>0 ~ 1</td>
+</tr>
+<tr>
+<td>角度过滤</td>
+<td>角度筛选</td>
+<td>角度范围</td>
+</tr>
+<tr>
+<td>ROI</td>
+<td>检测区域</td>
+<td>全图或自定义，也可以继承其他工具ROI</td>
+</tr>
+<tr>
+<td>基准点 / 运行点</td>
+<td>配合位置修正</td>
+<td>上游位置修正工具</td>
+</tr>
+<tr>
+<td>边沿剔除</td>
+<td>配合ROI使用</td>
+<td>创建时默认为ROI大小，可调整，执行会提出与边沿有交集的结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：Blob
+列表（坐标、面积、宽高等）、显示文本（每个 Blob 面积明细）。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>上游建议先做图像二值化或形态学预处理</p></li>
+<li><p>面积/宽高等范围按实际目标设置，避免过宽过窄</p></li>
+<li><p>与「位置修正」配合可使 ROI 自动跟随基准</p></li>
+</ul>
+<h4 id="位置修正">7.3.3 位置修正</h4>
+<p><strong>用途</strong>：以基准位置为参照，校正后续工具的 ROI
+位置与角度。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image26.png"
+style="width:4.35362in;height:5.12436in" /></p>
+<p>效果图：</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image27.png"
+style="width:5.76806in;height:4.57014in" /></p>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 32%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>参考图像</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>基准点X / Y / 角度 / 尺度</td>
+<td>基准位置来源</td>
+<td>上游或全局变量</td>
+</tr>
+<tr>
+<td>运行点X / Y / 角度 / 尺度</td>
+<td>当前位置来源</td>
+<td>上游或全局变量</td>
+</tr>
+<tr>
+<td>创建基准</td>
+<td>用当前结果作为基准</td>
+<td>按钮</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：修正后的坐标、角度，以及修正矩阵。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>配置后先点「创建基准」记录一次基准</p></li>
+<li><p>运行点通常来自模板匹配、查找圆等定位工具</p></li>
+<li><p>修正结果可被后续工具的 ROI 自动跟随</p></li>
+</ul>
+<h4 id="目标检测">7.3.4 目标检测</h4>
+<p><strong>用途</strong>：基于
+yolo模型检测图像中的目标，输出类别与位置。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image28.png"
+style="width:4.36404in;height:5.15561in" /></p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 45%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>检测源图</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>模型路径</td>
+<td>ONNX 模型文件</td>
+<td>文件浏览</td>
+</tr>
+<tr>
+<td>置信度</td>
+<td>检测置信度阈值</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+<tr>
+<td>IOU</td>
+<td>框重叠去重阈值</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：检测框列表（X、Y、宽、高、类别、置信度）、检测数量。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>模型文件需与训练框架兼容</p></li>
+<li><p>置信度过高会漏检，过低会误检</p></li>
+</ul>
+<h4 id="图像分割">7.3.5 图像分割</h4>
+<p><strong>用途</strong>：基于 yolo
+模型对图像做像素级分割，输出掩膜图。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image29.png"
+style="width:4.30155in;height:5.13477in" /></p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>输入图像</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>模型路径</td>
+<td>模型文件</td>
+<td>文件浏览</td>
+</tr>
+<tr>
+<td>置信度</td>
+<td>像素分类阈值</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：分割掩膜图、各类别面积。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>适合纹理复杂或不规则目标</p></li>
+</ul>
+<h4 id="obb">7.3.6 OBB</h4>
+<p><strong>用途</strong>：检测带角度的旋转矩形目标。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image30.png"
+style="width:4.39528in;height:5.13477in" /></p>
+<p>效果图：</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image31.png"
+style="width:5.76806in;height:4.69861in" /></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 55%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入图像</td>
+<td>输入图像</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>模型路径</td>
+<td>模型文件</td>
+<td>文件浏览</td>
+</tr>
+<tr>
+<td>置信度</td>
+<td>置信度阈值</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+<tr>
+<td>IOU</td>
+<td>重叠去重阈值</td>
+<td>0.0 ~ 1.0</td>
+</tr>
+<tr>
+<td>交集过滤</td>
+<td>是否启用检测结果交集过滤</td>
+<td>是/否</td>
+</tr>
+<tr>
+<td>交集阈值</td>
+<td>检测结果交集过滤阈值设置</td>
+<td>自定义</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：旋转框列表（中心X、中心Y、宽、高、角度、类别、置信度）。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>适用于倾斜放置的工件</p></li>
+<li><p>交集过滤适用于机器人使用夹爪而不是吸盘的情况</p></li>
+</ul>
+<h3 id="逻辑控制类">7.4 逻辑控制类</h3>
+<h4 id="组合模块">7.4.1 组合模块</h4>
+<p><strong>用途</strong>：把一段子流程封装成可复用模块，支持循环累加显示与对外发布输出。</p>
+<p>工具页面：</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image32.png"
+style="width:4.34321in;height:5.20768in" /></p>
+<p>分别包含了输入设置、输出设置、显示设置、循环设置</p>
+<p>输入设置可选择当前作业中，组合模块工具前的工具输出信息作为输入；</p>
+<p>输出设置：</p>
+<p>输出设置中可配置组合模块内输出的信息，主要是字段信息，不包含图像、图形的输出</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image33.png"
+style="width:4.34321in;height:5.11394in" /></p>
+<p>显示设置：</p>
+<p>设置用于输出当前工具的图像与图形信息，设置后，在外部作业中点击此工具时，可显示当前设置的图形信息，【累计】表示是否启用累加当前组合模块循环过程中的结果图形叠加</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image34.png"
+style="width:4.31196in;height:5.16602in" /></p>
+<p>循环设置：</p>
+<p>设置是否启用组合模块内的循环，通常结合配置的输入信息使用，用于设置循环的次数，循环间隔默认1ms</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image35.png"
+style="width:4.28072in;height:5.19727in" /></p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 36%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>子流程</td>
+<td>内部工具流程</td>
+<td>双击进入编辑</td>
+</tr>
+<tr>
+<td>输入设置</td>
+<td>配置工具内使用的变量</td>
+<td>根据变量定义</td>
+</tr>
+<tr>
+<td>输出设置</td>
+<td>配置工具输出变量</td>
+<td>根据变量定义</td>
+</tr>
+<tr>
+<td>显示设置</td>
+<td>对外发布的显示项</td>
+<td>图像 / ROI / 文本 / 检测结果</td>
+</tr>
+<tr>
+<td>循环执行</td>
+<td>是否对内部流程做循环</td>
+<td>开 / 关</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：对外发布的图像、文本、检测结果等。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>子流程内可使用大多数普通工具</p></li>
+<li><p>显示设置中订阅的字段可被外部作业引用</p></li>
+<li><p>适合多检测点重复使用的场景</p></li>
+<li><p>配置的显示设置中的图形可在外部作业的【设置图形显示】中调用</p></li>
+</ul>
+<h4 id="条件检测">7.4.2 条件检测</h4>
+<p><strong>用途</strong>：组合多个条件判断综合结果（如 OK / NG）。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image36.png"
+style="width:5.76806in;height:4.19167in" /></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 46%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>条件项</td>
+<td>待判断字段</td>
+<td>上游输出或全局变量</td>
+</tr>
+<tr>
+<td>比较方式</td>
+<td>大于 / 小于 / 等于 / 区间 等</td>
+<td>下拉选择</td>
+</tr>
+<tr>
+<td>组合方式</td>
+<td>多条件组合</td>
+<td>与 / 或</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：综合判定结果（Pass / Fail）。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>适合做结果收集的前置条件判定</p></li>
+<li><p>与「条件分支」配合可走不同后续流程</p></li>
+</ul>
+<h4 id="条件分支">7.4.3 条件分支</h4>
+<p><strong>用途</strong>：根据条件走不同的分支流程。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image37.png"
+style="width:5.76806in;height:4.00625in" /></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 59%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>判断条件</td>
+<td>上游字段或全局变量</td>
+<td>选择</td>
+</tr>
+<tr>
+<td>真分支</td>
+<td>条件成立时执行的工具</td>
+<td>选择</td>
+</tr>
+<tr>
+<td>假分支</td>
+<td>条件不成立时执行的工具</td>
+<td>选择</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：当前走向的分支结果。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>与「条件检测」组合实现 OK 走输出、NG 走报警</p></li>
+<li><p>复杂分支可串联多个本工具</p></li>
+</ul>
+<h4 id="矩形框筛选">7.4.4 矩形框筛选</h4>
+<p><strong>用途</strong>：对上游检测到的矩形框按位置、尺寸、角度过滤。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image38.png"
+style="width:4.21822in;height:6.82206in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 59%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入框列表</td>
+<td>待过滤的框</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>位置范围</td>
+<td>X / Y 范围</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>尺寸范围</td>
+<td>宽 / 高范围</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>角度范围</td>
+<td>角度范围</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>交集过滤</td>
+<td>对检测结果是否启用交集过滤</td>
+<td>是/否</td>
+</tr>
+<tr>
+<td>过滤面积</td>
+<td>交集过滤启用时，检测结果过滤的面积阈值</td>
+<td>数值</td>
+</tr>
+<tr>
+<td>排序</td>
+<td>根据坐标进行x/y的从大到小/从小到大排序</td>
+<td>选择框</td>
+</tr>
+<tr>
+<td>ROI边缘剔除</td>
+<td>启用时剔除与边缘ROI有重叠的矩形框数据</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>剔除宽高超限物体</td>
+<td>根据设置的宽、高，剔除超出阈值的矩形</td>
+<td>数值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：过滤后的框列表。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>常用于剔除目标检测输出中明显异常的框</p></li>
+</ul>
+<h4 id="数据收集">7.4.5 数据收集</h4>
+<p><strong>用途</strong>：累积多次运行结果，便于批次分析或导出。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image39.png"
+style="width:5.76806in;height:3.85556in" /></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 71%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据来源</td>
+<td>要收集的字段</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>执行此工具的前置条件</td>
+<td>0/1</td>
+</tr>
+<tr>
+<td>清空条件</td>
+<td>每次执行工具时的清空条件，满足条件会清空当前定义变量中的数据信息，重新开始累计收集</td>
+<td>根据绑定信息取值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：累计数据列表。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>配合机器人格式以及条件检测使用，满足条件时进行数据收集，收集完成后可在机器人格式中配置输入直接转换为金刚可以直接使用的数据格式</p></li>
+</ul>
+<h3 id="数据与通信类">7.5 数据与通信类</h3>
+<h4 id="数据发送">7.5.1 数据发送</h4>
+<p><strong>用途</strong>：通过网络（TCP/UDP）将结果发送至机器人。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image40.png"
+style="width:4.19739in;height:2.56218in" /></p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 26%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通讯对象</td>
+<td>接收设备</td>
+<td>在「全局网络」配置</td>
+</tr>
+<tr>
+<td>发送数据</td>
+<td>待发送字段</td>
+<td>树形多选（坐标、状态等）</td>
+</tr>
+<tr>
+<td>发送格式</td>
+<td>字符串组装方式</td>
+<td>与「格式化」/「机器人格文本」配合</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：发送结果（成功 / 失败）。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>必须先在「全局网络」配好对端 IP/端口</p></li>
+<li><p>数据优先使用机器人文本工具组合后再发送</p></li>
+<li><p>通讯断开时本工具会报错，便于排查</p></li>
+</ul>
+<h4 id="格式化">7.5.2 格式化</h4>
+<p><strong>用途</strong>：按指定模板把多个字段拼成一条字符串，常用于机器人报文输出。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image41.png"
+style="width:5.76806in;height:3.15278in" /></p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 41%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>判断条件</td>
+<td>成功/失败判断字段</td>
+<td>上游或全局变量</td>
+</tr>
+<tr>
+<td>分隔符</td>
+<td>字段之间的分隔符</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>结束符</td>
+<td>报文结束符</td>
+<td>自定义</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：组装后的字符串，可在预览区查看效果。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>按对端约定的协议设置分隔符与结束符</p></li>
+<li><p>输出结果可直接交给「数据发送」</p></li>
+<li><p>此项主要用于当机器人文本工具不满足条件的情况下使用，进行自定义格式化数据字符串组合</p></li>
+</ul>
+<h4 id="机器人文本">7.5.3 机器人文本</h4>
+<p><strong>用途</strong>：按机器人通信约定格式输出文本。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image42.png"
+style="width:5.76806in;height:3.84792in" /></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 80%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像源</td>
+<td>必选，且执行时仅支持数组类型并要求长度一致</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>输出字段</td>
+<td>要发送的字段</td>
+<td>多选</td>
+</tr>
+<tr>
+<td>文本格式</td>
+<td>将机器人格式中的x、y、角度、color值抽取出来进行自定义绑定数据，x、y、角度都为数组形式，可在预览按钮中进行数据单独预览</td>
+<td>自定义模板</td>
+</tr>
+<tr>
+<td>预览</td>
+<td>执行工具后，会将定义的数据源自动组合成机器人文本格式，点击预览按钮可以预览数据</td>
+<td>默认模版</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：机器人可识别的字符串。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>各字段长度必须一致</p></li>
+<li><p>推荐与「数据收集」、「数据发送」联合使用，先使用数据收集工具收集信息，再使用机器人文本组合数据，最后通过数据发送将标准文本发送给机器人</p></li>
+</ul>
+<h3 id="脚本类">7.6 脚本类</h3>
+<h4 id="执行脚本">7.6.1 执行脚本</h4>
+<p><strong>用途</strong>：通过脚本实现内置工具未覆盖的自定义逻辑。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image43.png"
+style="width:5.76806in;height:3.20556in" /></p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 47%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>取值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入数据</td>
+<td>脚本输入字段</td>
+<td>上游输出</td>
+</tr>
+<tr>
+<td>脚本代码</td>
+<td>脚本主体</td>
+<td>文本编辑</td>
+</tr>
+<tr>
+<td>运行 / 调试</td>
+<td>立即执行测试</td>
+<td>按钮</td>
+</tr>
+<tr>
+<td>输出结果</td>
+<td>脚本对外暴露的字段</td>
+<td>自动列出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出</strong>：脚本中定义的输出字段。</p>
+<p><strong>使用要点</strong>：</p>
+<ul>
+<li><p>适合复杂规则、非标计算</p></li>
+<li><p>调试时建议先用少量数据验证</p></li>
+<li><p>出错信息会显示在日志区</p></li>
+<li><p>非必要调试人员尽量不要修改此项中的数据</p></li>
+</ul>
+<h2 id="第8章-页面控件说明">第8章 页面控件说明</h2>
+<p>本章对常用页面中可见控件进行说明，便于操作员快速理解每个按钮、输入框的作用。</p>
+<h3 id="主界面">8.1 主界面</h3>
+<p><strong>用途</strong>：软件主窗口，承载菜单、作业页签、流程区、主图像区与日志区。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image44.png"
+style="width:5.76806in;height:3.09722in" /></p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 21%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>区域</strong></th>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顶部菜单</td>
+<td>文件</td>
+<td>新建 / 打开 / 保存项目、退出</td>
+</tr>
+<tr>
+<td>顶部菜单</td>
+<td>作业</td>
+<td>新建作业 / 删除作业 / 切换作业</td>
+</tr>
+<tr>
+<td>顶部菜单</td>
+<td>视图</td>
+<td>显示或隐藏各功能面板</td>
+</tr>
+<tr>
+<td rowspan="9">工具栏</td>
+<td>运行模式切换</td>
+<td>在线 / 离线模式切换</td>
+</tr>
+<tr>
+<td>保存</td>
+<td>保存当前方案，下次启用软件默认加载此方案</td>
+</tr>
+<tr>
+<td>导入/导出方案</td>
+<td>将当前方案另存</td>
+</tr>
+<tr>
+<td>全局相机</td>
+<td>打开全局相机配置</td>
+</tr>
+<tr>
+<td>全局变量</td>
+<td>打开全局变量管理</td>
+</tr>
+<tr>
+<td>全局触发</td>
+<td>打开全局触发配置</td>
+</tr>
+<tr>
+<td>全局通讯</td>
+<td>打开全局网络配置</td>
+</tr>
+<tr>
+<td>切换方案</td>
+<td>通过tcp设置触发字符以及触发时需要切换的方案</td>
+</tr>
+<tr>
+<td>日志</td>
+<td>打开日志查看器</td>
+</tr>
+<tr>
+<td>左侧</td>
+<td>工具箱</td>
+<td>所有可拖入流程区的工具</td>
+</tr>
+<tr>
+<td>中部</td>
+<td>作业页签</td>
+<td>每个页签对应一个作业流程</td>
+</tr>
+<tr>
+<td>中部</td>
+<td>流程编辑区</td>
+<td>拖拽、连接、配置工具</td>
+</tr>
+<tr>
+<td>右上</td>
+<td>主图像显示区</td>
+<td>实时显示当前结果</td>
+</tr>
+<tr>
+<td>右下</td>
+<td>缩略图区</td>
+<td>浏览图像源中的多张图像</td>
+</tr>
+<tr>
+<td>底部</td>
+<td>结果数据区</td>
+<td>显示当前工具的输出数据</td>
+</tr>
+<tr>
+<td>底部</td>
+<td>日志区</td>
+<td>实时显示运行日志</td>
+</tr>
+<tr>
+<td>底部</td>
+<td>状态栏</td>
+<td>显示当前方案路径、方案执行结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>双击作业页签可重命名</p></li>
+<li><p>拖动面板分隔条可调整区域大小</p></li>
+<li><p>关闭软件前会自动提示保存项目</p></li>
+</ul>
+<h3 id="作业页签工具栏">8.2 作业页签工具栏</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image45.png"
+style="width:5.76806in;height:8.72292in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>按钮</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运行</td>
+<td>执行当前作业一次</td>
+</tr>
+<tr>
+<td>连续运行 / 停止</td>
+<td>循环执行 / 停止</td>
+</tr>
+<tr>
+<td>添加工具</td>
+<td>在流程中插入工具</td>
+</tr>
+<tr>
+<td>删除工具</td>
+<td>移除选中的工具</td>
+</tr>
+<tr>
+<td>显示设置</td>
+<td>打开作业显示设置，可以设置当前作业默认显示的图像信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="作业显示设置-1">8.3 作业显示设置</h3>
+<p><strong>用途</strong>：配置该作业主显示区显示哪些工具的哪些输出。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image46.png"
+style="width:4.23905in;height:5.0827in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>显示项列表</td>
+<td>当前已订阅的显示项</td>
+</tr>
+<tr>
+<td>添加</td>
+<td>选择要订阅的字段（图像 / ROI / 文本 / 检测结果）</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>移除显示项</td>
+</tr>
+<tr>
+<td>订阅关系</td>
+<td>指定字段来源（工具 + 输出字段）</td>
+</tr>
+<tr>
+<td>执行</td>
+<td>立即按当前设置渲染一次</td>
+</tr>
+<tr>
+<td>连续执行</td>
+<td>持续按设置渲染</td>
+</tr>
+<tr>
+<td>确定</td>
+<td>保存设置并关闭</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>设置随项目保存，下次打开自动恢复</p></li>
+<li><p>至少包含「输出图像」一项可保证主显示区有内容</p></li>
+<li><p>字段类型需与显示类型匹配</p></li>
+</ul>
+<h3 id="主图像显示与缩略图">8.4 主图像显示与缩略图</h3>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image47.png"
+style="width:5.76806in;height:4.88125in" /></p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 36%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>区域</strong></th>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上方面板</td>
+<td>图像显示区</td>
+<td>显示主图像与叠加图形</td>
+</tr>
+<tr>
+<td>上方面板</td>
+<td>像素信息</td>
+<td>鼠标位置的坐标与 RGB 值</td>
+</tr>
+<tr>
+<td>上方面板</td>
+<td>右键菜单 - 保存原始图像</td>
+<td>保存当前显示的原图</td>
+</tr>
+<tr>
+<td>中部面板</td>
+<td>添加图片</td>
+<td>添加单张或多张本地图片到缩略图</td>
+</tr>
+<tr>
+<td>中部面板</td>
+<td>添加文件夹</td>
+<td>加载文件夹中的所有图片</td>
+</tr>
+<tr>
+<td>中部面板</td>
+<td>清空图像</td>
+<td>清空缩略图与显示</td>
+</tr>
+<tr>
+<td>中部面板</td>
+<td>自动切换图片</td>
+<td>循环运行时自动切下一张</td>
+</tr>
+<tr>
+<td>下方面板</td>
+<td>缩略图列表</td>
+<td>浏览图像源里的多张图</td>
+</tr>
+<tr>
+<td>下方面板</td>
+<td>数量显示</td>
+<td>当前序号 / 总数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>切换缩略图会自动执行作业并刷新主显示</p></li>
+<li><p>非图像源工具被选中时操作按钮自动隐藏，避免误操作</p></li>
+<li><p>鼠标滚轮缩放，按住拖动平移</p></li>
+</ul>
+<h3 id="全局相机">8.5 全局相机</h3>
+<p><strong>用途</strong>：管理与软件连接的相机设备。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image48.png"
+style="width:2.55176in;height:7.75945in" /></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 34%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>区域</strong></th>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左侧列表</td>
+<td>相机列表</td>
+<td>已添加的相机</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>添加相机</td>
+<td>新增相机连接</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>删除相机</td>
+<td>移除选中相机</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>相机选择</td>
+<td>切换当前相机</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>曝光模式</td>
+<td>手动 / 自动</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>曝光时间</td>
+<td>单位 μs</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>增益模式</td>
+<td>手动 / 自动</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>增益值</td>
+<td>单位 dB</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>伽马校正</td>
+<td>启用 / 数值</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>图像宽 / 图像高</td>
+<td>分辨率</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>触发源</td>
+<td>软件触发 / 硬件触发</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>执行按钮</td>
+<td>手动触发一次采集</td>
+</tr>
+<tr>
+<td>左侧列表</td>
+<td>保存参数</td>
+<td>保存当前配置</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>添加相机前先安装好相机驱动</p></li>
+<li><p>自动模式下手动参数不生效</p></li>
+<li><p>修改分辨率会重新初始化相机</p></li>
+</ul>
+<h3 id="全局变量">8.6 全局变量</h3>
+<p><strong>用途</strong>：定义跨作业、跨工具共享的变量。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image49.png"
+style="width:5.76806in;height:2.41042in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>变量列表</td>
+<td>已有变量（变量名、类型、当前值、初始值、说明）</td>
+</tr>
+<tr>
+<td>添加变量</td>
+<td>新增一个变量</td>
+</tr>
+<tr>
+<td>删除变量</td>
+<td>删除选中变量</td>
+</tr>
+<tr>
+<td>保存变量</td>
+<td>把当前配置写入项目</td>
+</tr>
+<tr>
+<td>类型下拉</td>
+<td>整数 / 浮点 / 字符串</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>变量名建议英文 + 数字，便于在工具中选择</p></li>
+<li><p>修改后必须点击「保存变量」才会持久化</p></li>
+<li><p>脚本工具可直接读写全局变量</p></li>
+</ul>
+<h3 id="全局触发">8.7 全局触发</h3>
+<p><strong>用途</strong>：配置外部信号或定时器触发作业。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image50.png"
+style="width:5.76806in;height:3.19028in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>触发列表</td>
+<td>已配置的触发规则</td>
+</tr>
+<tr>
+<td>触发类型</td>
+<td>Tcp</td>
+</tr>
+<tr>
+<td>绑定作业</td>
+<td>触发后执行的作业</td>
+</tr>
+<tr>
+<td>添加 / 删除 / 保存 / 刷新</td>
+<td>触发列表修订</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>触发需先在全局通讯配置tcp通讯列表</p></li>
+<li><p>定时tcp触发适合无外部信号场景做节拍测试</p></li>
+</ul>
+<h3 id="全局通讯">8.8 全局通讯</h3>
+<p><strong>用途</strong>：配置 TCP/UDP 通讯。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image51.png"
+style="width:5.76806in;height:4.45486in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>网络模式</td>
+<td>TCP 客户端 / TCP 服务端 / UDP</td>
+</tr>
+<tr>
+<td>本地 IP / 本地端口</td>
+<td>本机绑定地址</td>
+</tr>
+<tr>
+<td>远程 IP / 远程端口</td>
+<td>对端地址（客户端模式）</td>
+</tr>
+<tr>
+<td>连接状态</td>
+<td>实时连接状态</td>
+</tr>
+<tr>
+<td>连接 / 断开</td>
+<td>手动控制连接</td>
+</tr>
+<tr>
+<td>发送 / 接收日志</td>
+<td>实时报文查看</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>同一端口不能重复占用</p></li>
+<li><p>客户端模式下需保证对端先启动</p></li>
+<li><p>断线后可在此页面手动重连</p></li>
+</ul>
+<h3 id="运行模式">8.9 运行模式</h3>
+<p><strong>用途</strong>：选择作业的运行策略与主界面布局。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image52.png"
+style="width:5.76806in;height:3.19514in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>布局选择</td>
+<td>一分 / 二分 / 三分 / 四分屏</td>
+</tr>
+<tr>
+<td>显示区域标题</td>
+<td>各区域显示内容</td>
+</tr>
+<tr>
+<td>运行模式</td>
+<td>单次 / 连续 / 循环 N 次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>在设置中，将画面与作业绑定，没有绑定作业不会显示图像信息</p></li>
+</ul>
+<h3 id="日志">8.10 日志</h3>
+<p><strong>用途</strong>：查看运行日志，定位异常。</p>
+<p><img
+src="D:\3.代码\4.公司\7.视觉相关软件\1.Vision\3.net10视觉\visionpower2.0.net8-edition\site/media/image53.png"
+style="width:5.76806in;height:2.81042in" /></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>控件</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>等级过滤</td>
+<td>调试 / 信息 / 警告 / 错误</td>
+</tr>
+<tr>
+<td>关键词搜索</td>
+<td>快速定位</td>
+</tr>
+<tr>
+<td>清空日志</td>
+<td>删除当前显示的日志</td>
+</tr>
+<tr>
+<td>导出日志</td>
+<td>保存为文件</td>
+</tr>
+<tr>
+<td>日志列表</td>
+<td>时间 / 等级 / 来源 / 内容</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：</p>
+<ul>
+<li><p>异常排查优先看「错误」级别</p></li>
+<li><p>长时间运行建议定期导出日志归档</p></li>
+<li><p>日志本地存储在程序所在目录下的Logs文件夹中</p></li>
+</ul>
+<h2 id="第9章-运行与发布">第9章 运行与发布</h2>
+<h3 id="调试期使用建议">8.1 调试期使用建议</h3>
+<ul>
+<li><p>单击工具逐步验证每一步参数</p></li>
+<li><p>用“作业显示设置”检查关键中间结果</p></li>
+<li><p>用“缩略图”逐张图像验证稳定性</p></li>
+</ul>
+<h3 id="生产期使用建议">8.2 生产期使用建议</h3>
+<ul>
+<li><p>锁定方案文件，避免现场误改</p></li>
+<li><p>配置“全局相机”线触发实现自动运行</p></li>
+<li><p>配合“条件检测”“条件分支”做 OK / NG 输出</p></li>
+<li><p>配合“数据发送”与机器人/PLC 联机</p></li>
+</ul>
+<h3 id="启动顺序建议">8.3 启动顺序建议</h3>
+<ol type="1">
+<li><p>打开软件</p></li>
+<li><p>加载方案</p></li>
+<li><p>检查相机、网络、I/O 状态</p></li>
+<li><p>切换到在线模式</p></li>
+<li><p>关闭程序前，如果需要下次启动程序自动运行，需在「在线模式」下保存项目</p></li>
+</ol>
+<h2 id="第10章-日志与提示">第10章 日志与提示</h2>
+<ul>
+<li><p>普通信息：用于追踪流程执行步骤</p></li>
+<li><p>警告：参数不合理或边界情况</p></li>
+<li><p>错误：工具执行失败或通讯等异常</p></li>
+</ul>
+<p>排查问题的基本顺序：</p>
+<ol type="1">
+<li><p>看日志最近一条错误</p></li>
+<li><p>单击对应工具看输入是否正常</p></li>
+<li><p>双击工具检查参数</p></li>
+<li><p>重新单击工具运行验证</p></li>
+</ol>
+<h2 id="第11章-常见问题">第11章 常见问题</h2>
+<h3 id="缩略图问题">10.1 缩略图问题</h3>
+<ul>
+<li><p>现象：新建作业后还能看到旧缩略图</p></li>
+</ul>
+<p>处理：切换页签或重新点击图像源工具</p>
+<ul>
+<li><p>现象：点击空白处缩略图变灰</p></li>
+</ul>
+<p>处理：单击图像源工具即可恢复</p>
+<h3 id="图像不显示">10.2 图像不显示</h3>
+<ul>
+<li><p>检查是否选中了某个工具</p></li>
+<li><p>检查上游工具是否执行成功</p></li>
+<li><p>检查“作业显示设置”中是否订阅了有效字段</p></li>
+</ul>
+<h3 id="检测结果为空">10.3 检测结果为空</h3>
+<ul>
+<li><p>检查 ROI 是否正确覆盖目标区域</p></li>
+<li><p>检查模板/阈值/颜色范围是否合理</p></li>
+<li><p>用“图像滤波”“图像增强”预处理后再检测</p></li>
+</ul>
+<h3 id="通信无数据">10.4 通信无数据</h3>
+<ul>
+<li><p>确认网络已连接</p></li>
+<li><p>确认对端 IP 与端口正确</p></li>
+<li><p>确认“数据发送”工具被流程实际执行到</p></li>
+</ul>
+<h3 id="工具拖拽无效">10.5 工具拖拽无效</h3>
+<ul>
+<li><p>确认未处于循环执行中（先停止运行）</p></li>
+<li><p>确认当前作业页签为可编辑状态</p></li>
+</ul>
+<h2 id="第12章-维护建议">第12章 维护建议</h2>
+<ul>
+<li><p>项目方案文件按日期归档备份</p></li>
+<li><p>重要批次保留原图与对应结果文件</p></li>
+<li><p>模型文件（yolo工具使用）独立备份</p></li>
+<li><p>升级前先做完整备份</p></li>
+<li><p>现场无法处理的问题保留日志后联系技术支持</p></li>
+</ul>
+<h2 id="附录a-工具速查表">附录A 工具速查表</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>分类</strong></th>
+<th><strong>工具名</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>采集</td>
+<td>图像源、图像保存</td>
+</tr>
+<tr>
+<td>图像处理</td>
+<td>图像增强、图像二值化、几何变换</td>
+</tr>
+<tr>
+<td>定位检测</td>
+<td>高精度模板匹配、Blob 分析、位置修正、目标检测、图像分割、obb</td>
+</tr>
+<tr>
+<td>逻辑控制</td>
+<td>组合模块、条件检测、条件分支、矩形框筛选、数据收集</td>
+</tr>
+<tr>
+<td>数据通信</td>
+<td>数据发送、格式化、机器人文本</td>
+</tr>
+<tr>
+<td>脚本</td>
+<td>执行脚本</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

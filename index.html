@@ -3,24 +3,567 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>VisionPower 2.0 Manual</title>
+<title>VisionPower 2.0 · 智能视觉平台</title>
+<meta name="description" content="VisionPower 2.0 — 通用智能视觉平台，提供软件展示、用户手册与资料下载。" />
 <style>
-  :root { color-scheme: light dark; }
-  body { margin:0; font-family: "Segoe UI","Microsoft YaHei",sans-serif; }
-  header { padding:14px 20px; border-bottom:1px solid #ddd; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-  header h1 { font-size:18px; margin:0; flex:1 1 auto; }
-  header a { text-decoration:none; padding:6px 12px; border:1px solid #888; border-radius:6px; color:inherit; }
-  header a.primary { background:#2563eb; color:#fff; border-color:#2563eb; }
-  iframe { width:100%; height:calc(100vh - 60px); border:0; display:block; }
+  :root{
+    --bg:#ffffff;
+    --bg-2:#fff7ef;
+    --panel:#ffffff;
+    --ink:#1a1a1a;
+    --ink-soft:#5b5b5b;
+    --muted:#9a9a9a;
+    --line:#ececec;
+    --accent:#ED6D00;
+    --accent-2:#FF8A2B;
+    --accent-soft:#FFE7D1;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(237,109,0,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    color:var(--ink);
+    background:#ffffff;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* ---------- Top Nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;align-items:center;gap:28px;
+    padding:14px 40px;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:saturate(160%) blur(12px);
+    color:var(--ink);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+  .nav .brand .logo{
+    width:30px;height:30px;border-radius:8px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;color:#fff;font-size:14px;font-weight:800;
+    box-shadow:0 6px 18px rgba(237,109,0,.4);
+  }
+  .nav ul{list-style:none;display:flex;gap:6px;margin:0;padding:0;flex:1}
+  .nav ul a{
+    display:inline-block;padding:8px 14px;border-radius:8px;
+    color:var(--ink-soft);font-size:14px;transition:all .2s;
+  }
+  .nav ul a:hover{color:var(--accent);background:var(--accent-soft)}
+  .nav .cta{
+    padding:8px 16px;border-radius:999px;font-size:13px;
+    background:var(--accent);color:#fff;font-weight:600;
+    transition:all .2s;
+  }
+  .nav .cta:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 8px 18px rgba(237,109,0,.35)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;
+    background:
+      radial-gradient(1200px 600px at 85% -10%,rgba(237,109,0,.18),transparent 60%),
+      radial-gradient(900px 500px at -5% 110%,rgba(255,138,43,.14),transparent 60%),
+      linear-gradient(180deg,#ffffff 0%,#fff8f0 100%);
+    color:var(--ink);display:flex;align-items:center;
+    padding:120px 40px 80px;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(237,109,0,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(237,109,0,.06) 1px,transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--accent-soft);background:#fff;border-radius:999px;font-size:12px;color:var(--accent);letter-spacing:1px;font-weight:600}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  .hero h1{font-size:56px;line-height:1.1;margin:18px 0 14px;font-weight:800;letter-spacing:-.5px;color:var(--ink)}
+  .hero h1 .accent{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub-en{font-size:14px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:24px}
+  .hero p.lead{font-size:17px;color:var(--ink-soft);max-width:560px;margin:0 0 32px}
+  .hero .actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:10px;font-weight:600;font-size:14px;
+    transition:all .2s;border:1px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(237,109,0,.28)}
+  .btn-primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 14px 28px rgba(237,109,0,.4)}
+  .btn-ghost{border-color:var(--accent);color:var(--accent);background:#fff}
+  .btn-ghost:hover{background:var(--accent-soft)}
+
+  .hero-visual{
+    position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;
+    background:linear-gradient(180deg,#fff8f0,#ffe7d1);
+    border:1px solid var(--line);
+    box-shadow:0 30px 80px rgba(237,109,0,.18);
+  }
+  .hero-visual .stage{height:100%}
+  .hv-overlay{
+    position:absolute;left:0;right:0;bottom:0;z-index:4;
+    padding:22px 20px 14px;
+    background:linear-gradient(180deg,transparent,rgba(255,255,255,.92));
+    text-align:center;pointer-events:none;
+  }
+  .hv-overlay h4{margin:0 0 8px;font-size:15px;color:var(--ink);font-weight:700;min-height:1.2em}
+  .hv-overlay .cyl-dots{pointer-events:auto;margin-top:0}
+
+  .hero-stats{
+    position:relative;max-width:1280px;margin:64px auto 0;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    padding-top:36px;border-top:1px solid var(--line);
+  }
+  .stat .n{font-size:32px;font-weight:800;color:var(--ink)}
+  .stat .n span{color:var(--accent)}
+  .stat .l{font-size:13px;color:var(--ink-soft);margin-top:4px}
+
+  /* ---------- Section common ---------- */
+  section{padding:90px 40px}
+  .container{max-width:1280px;margin:0 auto}
+  .section-head{text-align:center;margin-bottom:50px}
+  .section-head .zh{font-size:34px;font-weight:800;letter-spacing:-.3px}
+  .section-head .en{font-size:13px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-top:8px}
+  .section-head .bar{width:42px;height:3px;background:var(--accent);margin:18px auto 0;border-radius:2px}
+
+  /* ---------- Features ---------- */
+  .features{background:#fff}
+  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .feat-card{
+    padding:30px 26px;border-radius:var(--radius);
+    background:#fff;border:1px solid var(--line);
+    transition:all .25s;position:relative;overflow:hidden;
+  }
+  .feat-card::before{
+    content:"";position:absolute;left:0;top:0;width:100%;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transform:scaleX(0);transform-origin:left;transition:transform .3s;
+  }
+  .feat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+  .feat-card:hover::before{transform:scaleX(1)}
+  .feat-card .ic{
+    width:46px;height:46px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent-soft),#FFD6B0);
+    color:var(--accent);display:grid;place-items:center;
+    margin-bottom:18px;font-size:22px;font-weight:700;
+  }
+  .feat-card h3{margin:0 0 8px;font-size:17px}
+  .feat-card p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.65}
+
+  /* ---------- Showcase (3D Cylinder) ---------- */
+  .showcase{background:#fff8f0;overflow:hidden}
+  .stage{
+    position:relative;
+    height:380px;
+    perspective:1600px;
+    perspective-origin:50% 50%;
+  }
+  .cylinder{
+    position:absolute;left:50%;top:50%;
+    width:0;height:0;
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+  .cyl-item{
+    position:absolute;
+    width:var(--cw,320px);height:var(--ch,200px);
+    left:calc(var(--cw,320px) / -2);
+    top:calc(var(--ch,200px) / -2);
+    border-radius:14px;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid var(--line);
+    box-shadow:0 14px 34px rgba(0,0,0,.18);
+    cursor:pointer;
+    transition:box-shadow .4s,filter .4s;
+    filter:brightness(.55) saturate(.85);
+  }
+  .cyl-item.front{
+    filter:none;
+    box-shadow:0 24px 60px rgba(237,109,0,.45),0 0 0 2px var(--accent);
+  }
+  .cyl-item img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .cyl-item .lbl{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:10px 14px;font-size:13px;color:#fff;font-weight:600;
+    background:linear-gradient(180deg,transparent,rgba(0,0,0,.65));
+    pointer-events:none;
+  }
+  .stage::after{
+    content:"";position:absolute;left:50%;bottom:18px;
+    width:70%;height:36px;
+    background:radial-gradient(ellipse,rgba(237,109,0,.32),transparent 70%);
+    transform:translateX(-50%);filter:blur(10px);
+    pointer-events:none;z-index:0;
+  }
+  .ctrl{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+    width:48px;height:48px;border-radius:50%;
+    background:#fff;border:1px solid var(--line);
+    color:var(--accent);font-size:22px;font-weight:700;cursor:pointer;
+    box-shadow:0 8px 22px rgba(0,0,0,.1);
+    display:grid;place-items:center;
+    transition:all .2s;
+  }
+  .ctrl:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-50%) scale(1.08)}
+  .ctrl.prev{left:10px} .ctrl.next{right:10px}
+  .cyl-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+  .cyl-dots span{
+    width:8px;height:8px;border-radius:50%;background:#e5d4c1;cursor:pointer;
+    transition:all .25s;
+  }
+  .cyl-dots span.on{background:var(--accent);width:22px;border-radius:4px}
+  .gallery-empty{text-align:center;color:var(--muted);padding:60px 0}
+
+  /* ---------- Docs / Download ---------- */
+  .docs{background:#fff;position:relative}
+  .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .doc-card{
+    padding:34px 28px;border-radius:var(--radius);
+    background:linear-gradient(180deg,#fff8f0,#fff);
+    border:1px solid var(--line);
+    display:flex;flex-direction:column;gap:14px;
+    transition:all .25s;
+  }
+  .doc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+  .doc-card .tag{
+    display:inline-block;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:1px;
+    background:var(--accent-soft);color:var(--accent);width:fit-content;
+  }
+  .doc-card h3{margin:0;font-size:20px}
+  .doc-card p{margin:0;color:var(--ink-soft);font-size:14px;flex:1}
+  .doc-card .links{display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;
+    background:var(--ink);color:#fff;display:inline-flex;align-items:center;gap:6px;
+    transition:all .2s;
+  }
+  .pill:hover{background:var(--accent);transform:translateY(-1px)}
+  .pill.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .pill.ghost:hover{border-color:var(--accent);color:var(--accent);background:#fff}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:#fff8f0;color:var(--ink-soft);padding:50px 40px 30px;border-top:1px solid var(--line);
+  }
+  .foot-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center}
+  .foot-inner .brand-f{color:var(--ink);font-weight:700;display:flex;align-items:center;gap:10px}
+  .foot-inner .brand-f .logo{
+    width:28px;height:28px;border-radius:7px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;
+  }
+  .foot-inner small{font-size:12.5px}
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(0,0,0,.88);
+    display:none;align-items:center;justify-content:center;z-index:100;
+    padding:40px;cursor:zoom-out;
+  }
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .lightbox .lb-cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
+  .lightbox .lb-close{position:absolute;top:20px;right:24px;color:#fff;font-size:28px;cursor:pointer;line-height:1}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .nav{padding:12px 20px;gap:10px}
+    .nav ul{display:none}
+    section{padding:60px 20px}
+    .hero{padding:100px 20px 60px}
+    .hero-inner{grid-template-columns:1fr;gap:36px}
+    .hero h1{font-size:38px}
+    .hero-stats{grid-template-columns:repeat(2,1fr);gap:18px}
+    .section-head .zh{font-size:26px}
+    .feat-grid{grid-template-columns:repeat(2,1fr)}
+    .stage{height:280px}
+    .doc-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
-  <header>
-    <h1>VisionPower 2.0 用户手册</h1>
-    <a href="manual.html">HTML</a>
-    <a href="manual.pdf" target="_blank">PDF</a>
-    <a class="primary" href="manual.docx" download>Download .docx</a>
-  </header>
-  <iframe src="manual.pdf" title="manual preview"></iframe>
+
+<nav class="nav">
+  <a href="#top" class="brand">
+    <span class="logo">V</span>
+    <span>VisionPower&nbsp;2.0</span>
+  </a>
+  <ul>
+    <li><a href="#home">首页 Home</a></li>
+    <li><a href="#features">功能特性 Features</a></li>
+    <li><a href="#docs">资料下载 Docs</a></li>
+  </ul>
+  <a class="cta" href="manual.html">查看手册</a>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>VisionPower · Intelligent Vision Platform</span>
+      <h1>让机器视觉<br/><span class="accent">触手可及</span></h1>
+      <div class="sub-en">MAKE MACHINE VISION EFFORTLESS</div>
+      <p class="lead">
+        VisionPower 2.0 是面向工业现场的通用智能视觉平台，
+        提供丰富的视觉算子、灵活的流程编辑、稳定的通讯接口，
+        助力客户快速构建高精度、高节拍的检测与定位方案。
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#docs">立即下载 ↓</a>
+        <a class="btn btn-ghost" href="#features">了解更多 →</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="stage" id="stage">
+        <div class="cylinder" id="cylinder"></div>
+      </div>
+      <button class="ctrl prev" id="cylPrev" aria-label="上一张">‹</button>
+      <button class="ctrl next" id="cylNext" aria-label="下一张">›</button>
+      <div class="hv-overlay">
+        <h4 id="cylTitle">正在加载展示图片…</h4>
+        <div class="cyl-dots" id="cylDots"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="n">.NET&nbsp;8</div><div class="l">现代技术栈 Modern Stack</div></div>
+    <div class="stat"><div class="n">2.0</div><div class="l">最新版本 Latest Version</div></div>
+    <div class="stat"><div class="n">可视化</div><div class="l">流程编辑 Visual Flow</div></div>
+    <div class="stat"><div class="n">7×24</div><div class="l">稳定运行 Reliability</div></div>
+  </div>
+</header>
+
+<!-- ===== Features ===== -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="zh">核心特性</div>
+      <div class="en">Core Features</div>
+      <div class="bar"></div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="ic">①</div>
+        <h3>基于 .NET 8</h3>
+        <p>采用 .NET 8 长期支持版技术栈构建，跨平台、长期维护，享受现代语言与运行时带来的性能与安全红利。</p>
+      </div>
+      <div class="feat-card">
+        <div class="ic">②</div>
+        <h3>可视化流程编辑</h3>
+        <p>拖拽式工具流编辑器，所见即所得，支持位置修正、组合模块、逻辑分支与子流程复用。</p>
+      </div>
+      <div class="feat-card">
+        <div class="ic">③</div>
+        <h3>稳定可靠</h3>
+        <p>面向 7×24 产线场景持续打磨，注重内存与资源管理，长时间运行依然稳定流畅。</p>
+      </div>
+      <div class="feat-card">
+        <div class="ic">④</div>
+        <h3>易于集成</h3>
+        <p>内置 TCP / 串口 / PLC 通讯，提供脚本与外部命令接口，轻松对接 MES、PLC 与上位机系统。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Docs ===== -->
+<section class="docs" id="docs">
+  <div class="container">
+    <div class="section-head">
+      <div class="zh">资料下载</div>
+      <div class="en">Documentation &amp; Download</div>
+      <div class="bar"></div>
+    </div>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag">HTML</span>
+        <h3>在线手册</h3>
+        <p>无需下载，在浏览器中直接阅读完整的 VisionPower 2.0 用户手册，支持目录跳转与全文检索。</p>
+        <div class="links">
+          <a class="pill" href="manual.html">在线阅读 →</a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <span class="tag">PDF</span>
+        <h3>PDF 手册</h3>
+        <p>排版精美的 PDF 版本用户手册，可在线预览或下载到本地，方便离线查阅与打印。</p>
+        <div class="links">
+          <a class="pill" href="manual.pdf" target="_blank">在线预览</a>
+          <a class="pill ghost" href="manual.pdf" download>下载 PDF</a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <span class="tag">DOCX</span>
+        <h3>Word 源文档</h3>
+        <p>可编辑的 Word 源文档，方便二次整理、内部分享或作为客户技术资料的模板。</p>
+        <div class="links">
+          <a class="pill" href="manual.docx" download>下载 DOCX</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="foot-inner">
+    <div class="brand-f">
+      <span class="logo">V</span>
+      <span>VisionPower 2.0</span>
+    </div>
+    <small>© <span id="year"></span> VisionPower · Intelligent Vision Platform · All Rights Reserved.</small>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close">×</span>
+  <img id="lbImg" alt=""/>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<!-- 展示图片配置（在 showcase.js 中编辑） -->
+<script src="showcase.js"></script>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth scroll for in-page links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href').slice(1);
+      const el=id?document.getElementById(id):null;
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+
+  // Lightbox
+  function openLightbox(src,cap){
+    const lb=document.getElementById('lightbox');
+    document.getElementById('lbImg').src=src;
+    document.getElementById('lbCap').textContent=cap||'';
+    lb.classList.add('open');
+  }
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+
+  // Load showcase data — 优先读 showcase.js (window.SHOWCASE)，充 fetch JSON 作为备份
+  function loadShowcase(){
+    if(window.SHOWCASE && Array.isArray(window.SHOWCASE.items)){
+      return Promise.resolve(window.SHOWCASE);
+    }
+    return fetch('showcase.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(r.status));
+  }
+  loadShowcase()
+    .then(data=>{
+      const items=(data&&data.items)||[];
+      const cyl=document.getElementById('cylinder');
+      const stage=document.getElementById('stage');
+      const titleEl=document.getElementById('cylTitle');
+      const dotsEl=document.getElementById('cylDots');
+      if(!items.length){
+        titleEl.textContent='showcase.js 中暂无图片';
+        return;
+      }
+      const N=items.length;
+      const isMobile=window.matchMedia('(max-width:700px)').matches;
+      const itemW=isMobile?180:240;
+      const itemH=Math.round(itemW*10/16);
+      const angleStep=360/N;
+      let radius;
+      if(N<3) radius=itemW;
+      else radius=Math.round((itemW/2)/Math.tan(Math.PI/N))+30;
+      stage.style.setProperty('--cw',itemW+'px');
+      stage.style.setProperty('--ch',itemH+'px');
+
+      // Build items
+      cyl.innerHTML='';
+      const nodes=[];
+      items.forEach((it,i)=>{
+        const d=document.createElement('div');
+        d.className='cyl-item';
+        d.style.transform=`rotateY(${i*angleStep}deg) translateZ(${radius}px)`;
+        d.innerHTML=`<img loading="lazy" alt="${(it.title||'').replace(/"/g,'&quot;')}" src="${it.src}"/><div class="lbl">${it.title||''}</div>`;
+        d.addEventListener('click',()=>{
+          const cur=((step%N)+N)%N;
+          if(cur===i){ openLightbox(it.src,it.title||''); }
+          else { goTo(i); resetAuto(); }
+        });
+        cyl.appendChild(d);
+        nodes.push(d);
+      });
+
+      // Dots
+      dotsEl.innerHTML='';
+      const dots=items.map((_,i)=>{
+        const s=document.createElement('span');
+        s.addEventListener('click',()=>{ goTo(i); resetAuto(); });
+        dotsEl.appendChild(s);
+        return s;
+      });
+
+      // Rotation state
+      let step=0;              // monotonic
+      let rotation=0;          // current displayed angle
+      let target=0;            // target angle (= -step*angleStep)
+      let paused=false;
+      let autoTimer=null;
+
+      function goTo(i){
+        const cur=((step%N)+N)%N;
+        let delta=(i-cur)%N;
+        if(delta>N/2) delta-=N;
+        if(delta<-N/2) delta+=N;
+        step+=delta;
+        target=-step*angleStep;
+      }
+      function next(){ step++; target=-step*angleStep; }
+      function prev(){ step--; target=-step*angleStep; }
+      function resetAuto(){
+        if(autoTimer) clearInterval(autoTimer);
+        autoTimer=setInterval(()=>{ if(!paused) next(); },3500);
+      }
+
+      function tick(){
+        rotation+=(target-rotation)*0.09;
+        cyl.style.transform=`translateZ(${-radius}px) rotateY(${rotation}deg)`;
+        const idx=((Math.round(-rotation/angleStep)%N)+N)%N;
+        nodes.forEach((el,i)=>el.classList.toggle('front',i===idx));
+        dots.forEach((el,i)=>el.classList.toggle('on',i===idx));
+        const it=items[idx];
+        if(titleEl.textContent!==(it.title||'')) titleEl.textContent=it.title||'';
+        requestAnimationFrame(tick);
+      }
+      tick();
+      resetAuto();
+
+      stage.addEventListener('mouseenter',()=>paused=true);
+      stage.addEventListener('mouseleave',()=>paused=false);
+      document.getElementById('cylPrev').addEventListener('click',()=>{ prev(); resetAuto(); });
+      document.getElementById('cylNext').addEventListener('click',()=>{ next(); resetAuto(); });
+
+      // Touch swipe
+      let tx=0;
+      stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;paused=true;},{passive:true});
+      stage.addEventListener('touchend',e=>{
+        const dx=(e.changedTouches[0].clientX-tx);
+        if(dx>40) prev(); else if(dx<-40) next();
+        paused=false; resetAuto();
+      });
+    })
+    .catch(()=>{
+      const t=document.getElementById('cylTitle');
+      if(t) t.textContent='无法加载展示数据，请检查 showcase.js';
+    });
+</script>
 </body>
 </html>
